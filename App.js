@@ -6,18 +6,13 @@ import ReactDOM from "react-dom/client";
 // const root= ReactDOM.createRoot(document.getElementById("root"));
 // root.render(heading); // convert object to h1 tag
 
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
- [ React.createElement(
-    "div",
-    { id: "child1" },
-    [React.createElement("h1", {}, "Iam an h1 tag"),React.createElement("h2",{},"Iam a h2 tag")]
-  ), React.createElement(
-    "div",
-    { id: "child2" },
-    [React.createElement("h1", {}, "Iam an h1 tag"),React.createElement("h2",{},"Iam a h2 tag")]
-  )]
-);
+const heading = React.createElement("h1",{id:"heading"},"Namaste React 🚀");
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent); // Here parent object replaces whatever is there in the root div in HTML
+root.render(heading); // Here parent object replaces whatever is there in the root div in HTML
+
+console.log(heading);
+
+//JSX
+
+const JSXheading = <h1 id="heading">Namaste React using JSX🚀</h1>
+console.log(JSXheading);
