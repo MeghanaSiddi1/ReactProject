@@ -8,11 +8,15 @@ import ReactDOM from "react-dom/client";
 
 const heading = React.createElement("h1",{id:"heading"},"Namaste React 🚀");
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading); // Here parent object replaces whatever is there in the root div in HTML
+
 
 console.log(heading);
 
-//JSX
+//JSX (It is ranspiled before it reaches the JS) - With the help of Babel which is dependency of Parcel
 
-const JSXheading = <h1 id="heading">Namaste React using JSX🚀</h1>
+// JSX => Babel conversts to React.CreateElement => Which is React Element. React Elemnet is nothing but JS object. render() renders that JS object to actual HTML element. 
+
+const JSXheading = (<h1 id="heading" tabIndex="5" className="heading">Namaste React using JSX🚀</h1>);
 console.log(JSXheading);
+
+root.render(JSXheading); // Here parent object replaces whatever is there in the root div in HTML
