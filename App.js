@@ -11,13 +11,13 @@ const Tile = () => (
   </h1>
 );
 
-// React Functional Component
+// Component Composition -> composing 2 components into one another (or) calling one component into another Component
 
 const HeadingComponent = () => (
   <div id="container">
-    <Tile/>
+    <Tile />
     <h1 className="heading">Namaste React Functional Component</h1>
-  </div>  
+  </div>
 );
 
 // HeadingComponent and HeadingComponent2 compoents are both same but change in syntax.
