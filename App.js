@@ -5,11 +5,15 @@ import ReactDOM from "react-dom/client";
 
 // JSX => Babel conversts to React.CreateElement => Which is React Element. React Elemnet is nothing but JS object. render() renders that JS object to actual HTML element.
 
-const Tile = () => (
-  <h1 id="title" tabIndex="5" className="title">
-    Namaste React using JSX🚀
-  </h1>
-);
+// Functional components cxan also be written in normal JS function syntax, not necessarily to be arrow functions
+
+const Tile = function () {
+  return (
+    <h1 id="title" tabIndex="5" className="title">
+      Namaste React using JSX🚀
+    </h1>
+  );
+};
 
 // Component Composition -> composing 2 components into one another (or) calling one component into another Component
 
