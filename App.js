@@ -7,18 +7,22 @@ import ReactDOM from "react-dom/client";
 
 // Functional components cxan also be written in normal JS function syntax, not necessarily to be arrow functions
 
-const Tile = function () {
-  return (
-    <h1 id="title" tabIndex="5" className="title">
-      Namaste React using JSX🚀
-    </h1>
-  );
-};
+const Tile = () => (
+  <h1 id="title" tabIndex="5" className="title">
+    Namaste React using JSX🚀
+  </h1>
+);
 
 // Component Composition -> composing 2 components into one another (or) calling one component into another Component
 
+const number = 10000;
+
 const HeadingComponent = () => (
   <div id="container">
+    {
+      number
+    /* {} Here we can write any piece of JS logic */
+    }
     <Tile />
     <h1 className="heading">Namaste React Functional Component</h1>
   </div>
