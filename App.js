@@ -9,9 +9,16 @@ import ReactDOM from "react-dom/client";
 const heading = (<h1 id="heading" tabIndex="5" className="heading">Namaste React using JSX🚀</h1>);
 console.log(heading);
 
-// React Component
-// Class Based Compoent - OLD
-// Functional Component - New
+// React Functional Component
+
+const HeadingComponent = () => {
+  return <h1 className="heading">Namaste React Functional Component</h1>
+}
+
+// const HeadingComponent2 = () => (<h1 className="heading">Namaste React Functional Component</h1>);
+
+// HeadingComponent and HeadingComponent2 compoents are both same but change in syntax.
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
