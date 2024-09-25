@@ -20,11 +20,12 @@ const number = 10000;
 const HeadingComponent = () => (
   <div id="container">
     {
-      number
-    /* {} Here we can write any piece of JS logic */
+      console.log("shdgfdsj")
+      /* {} Here we can write any piece of JS logic */
     }
     <Tile />
     <h1 className="heading">Namaste React Functional Component</h1>
+    <h2>{100 + 200}</h2>
   </div>
 );
 
