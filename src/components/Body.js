@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 
+
 // not using key (not recommended) << index as key <<< unique id as index
 
 
