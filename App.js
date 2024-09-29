@@ -38,12 +38,15 @@ const Header = () =>{
 
 const style = {textDecoration:"underLine"}
 
-const RestaurantCard = () =>{
+const RestaurantCard = (props) =>{ 
+  // Instead of props(in above line) here you can destructure on the fly here and can use directly. {resName, cuisine}
+  console.log(props);
+  // const {resName,cuisine} = props;
   return (
     <div className="res-card" style={{padding:"10px",backgroundColor:"#f0f0f0"}}>
       <img className="res-logo" alt="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/FOOD_CATALOG/IMAGES/CMS/2024/9/7/678cb386-5320-4980-8328-255723f659f2_d704d0e6-3703-41a0-bdb9-301064234038.JPG" />
-      <h3 style={style}>Meghana Foods</h3>
-      <h4>Biryani, North Indian, Asian</h4>
+      <h3 style={style}>{props.resName}</h3>
+      <h4>{props.cuisine}</h4>
       <h5>4.4 star</h5>
       <h5>38 minutes</h5>
       
@@ -55,16 +58,8 @@ const Body = () =>{
   return (<div className="body">
     <div className="search">Search</div>
     <div className="res-container">      
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
-      <RestaurantCard />
+      <RestaurantCard resName="Meghana Foods" cuisine="Biryani, North Indian, Asian"/>
+      <RestaurantCard resName="KFC" cuisine="Burgers, Fast Food" />
     </div>
   </div>)
 }
