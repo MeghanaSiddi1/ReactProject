@@ -1,35 +1,82 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//JSX (It is ranspiled before it reaches the JS) - With the help of Babel which is dependency of Parcel
+/**
+ * Header
+ * - Logo
+ * - Nav Links
+ * Body
+ * - Search
+ * - Restaurant Conatiner
+ *   - Restaurant Card
+ *    - Image
+ *    - Name of res, star rating, cuisine, delivery time
+ * Footer
+ * - Copyright
+ * - Links
+ * - Address
+ * - Conatcts
+ */
 
-// JSX => Babel conversts to React.CreateElement => Which is React Element. React Elemnet is nothing but JS object. render() renders that JS object to actual HTML element.
+const Header = () =>{
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img className="logo" src = "https://cdn6.f-cdn.com/contestentries/1318421/28372416/5aedd3a7adb01_thumb900.jpg" />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Conatct Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  )
+}
 
-// Functional components cxan also be written in normal JS function syntax, not necessarily to be arrow functions
+const style = {textDecoration:"underLine"}
 
-const Title = () =>(
-  <h1 id="title" tabIndex="5" className="title">    
-    Namaste React using JSX🚀
-  </h1>
-);
+const RestaurantCard = () =>{
+  return (
+    <div className="res-card" style={{padding:"10px",backgroundColor:"#f0f0f0"}}>
+      <img className="res-logo" alt="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/FOOD_CATALOG/IMAGES/CMS/2024/9/7/678cb386-5320-4980-8328-255723f659f2_d704d0e6-3703-41a0-bdb9-301064234038.JPG" />
+      <h3 style={style}>Meghana Foods</h3>
+      <h4>Biryani, North Indian, Asian</h4>
+      <h5>4.4 star</h5>
+      <h5>38 minutes</h5>
+      
+    </div>
+  )
+}
 
-// Component Composition -> composing 2 components into one another (or) calling one component into another Component
+const Body = () =>{
+  return (<div className="body">
+    <div className="search">Search</div>
+    <div className="res-container">      
+      <RestaurantCard />
+      <RestaurantCard />
+      <RestaurantCard />
+      <RestaurantCard />
+      <RestaurantCard />
+      <RestaurantCard />
+      <RestaurantCard />
+      <RestaurantCard />
+      <RestaurantCard />
+      <RestaurantCard />
+    </div>
+  </div>)
+}
 
+const AppLayout = () => {
+  return (<div className="app">
+    <Header/>
+    <Body/>
+  </div>)
+};
 
-
-const HeadingComponent = () => (
-  <div id="container">
-    {/* {Title()} */}
-    <Title/>
-    {/* <Title></Title>   */}
-    <h1 className="heading">Namaste React Functional Component</h1>   
-  </div>
-);
-
-// HeadingComponent and HeadingComponent2 compoents are both same but change in syntax.
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// root.render(heading); // Here it is for JSX/ React elemt.Here heading object replaces whatever is there in the root div in HTML
-
-root.render(<HeadingComponent />);
+root.render(<AppLayout />);
