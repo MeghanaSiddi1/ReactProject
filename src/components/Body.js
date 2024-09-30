@@ -8,6 +8,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [searchText,setSearchText]=useState("");
   console.log("listOfRes", listOfRestaurants);
 
   useEffect(() => {
@@ -25,16 +26,21 @@ const Body = () => {
     );
   };
 
-  // Conditional rendering
-  // if(listOfRestaurants.length===0){
-  //     return (<Shimmer/>)
-  // }
-
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+            <input type="text" className="search-box" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
+            <button className="btnSearch" onClick={()=>{               
+                const filteredRestaurant = listOfRestaurants.filter((res)=>
+                    res.info.name.includes(searchText)
+                );
+                console.log("FFFFFFFF",filteredRestaurant);
+                setListOfRestaurants(filteredRestaurant);
+            }}>Search</button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
@@ -43,7 +49,6 @@ const Body = () => {
             );
             console.log("updated", filteredList);
             setListOfRestaurants(filteredList);
-            // setListOfRestaurants(prev => prev.filter(rest => rest.info.avgRating > 4.6));
           }}
         >
           Top rated Restaurants
