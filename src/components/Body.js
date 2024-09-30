@@ -1,38 +1,38 @@
 import RestaurantCard from "./RestaurantCard";
 // import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
-import {SWIGGY_API_URL, STATIC_SWIGGY_API_URL} from "../utils/constants";
-import Shimmer from './Shimmer';
+import { SWIGGY_API_URL, STATIC_SWIGGY_API_URL } from "../utils/constants";
+import Shimmer from "./Shimmer";
 
 // not using key (not recommended) << index as key <<< unique id as key
 
 const Body = () => {
-
-
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  console.log('listOfRes',listOfRestaurants);
+  console.log("listOfRes", listOfRestaurants);
 
-
-useEffect(()=>{
+  useEffect(() => {
     fetchData();
-},[]);
+  }, []);
 
-const fetchData = async ()=>{
+  const fetchData = async () => {
     // const data= await fetch(SWIGGY_API_URL);
-    const data= await fetch(SWIGGY_API_URL);
+    const data = await fetch(SWIGGY_API_URL);
     const json = await data.json();
     console.log(json);
     // Optional Chaining
-    setListOfRestaurants(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setListOfRestaurants(
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
 
-}
+  // Conditional rendering
+  // if(listOfRestaurants.length===0){
+  //     return (<Shimmer/>)
+  // }
 
-if(listOfRestaurants.length===0){
-    return (<Shimmer/>)
-}
-
-
-  return (
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
@@ -41,9 +41,9 @@ if(listOfRestaurants.length===0){
             const filteredList = listOfRestaurants.filter(
               (rest) => rest.info.avgRating > 4.6
             );
-            console.log('updated', filteredList);
-             setListOfRestaurants(filteredList);
-           // setListOfRestaurants(prev => prev.filter(rest => rest.info.avgRating > 4.6));
+            console.log("updated", filteredList);
+            setListOfRestaurants(filteredList);
+            // setListOfRestaurants(prev => prev.filter(rest => rest.info.avgRating > 4.6));
           }}
         >
           Top rated Restaurants
