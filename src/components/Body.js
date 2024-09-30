@@ -1,20 +1,35 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
+// import resList from "../utils/mockData";
+import { useState, useEffect } from "react";
+import {SWIGGY_API_URL, STATIC_SWIGGY_API_URL} from "../utils/constants";
+import Shimmer from './Shimmer';
 
 // not using key (not recommended) << index as key <<< unique id as key
 
 const Body = () => {
-    // const arr=useState(resList);
-    // const [listOfRestaurants, setListOfRestaurants] = arr;
-    // The above one also works
 
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
   console.log('listOfRes',listOfRestaurants);
 
-//   const listOfRestaurants = arr[0];
-//   const setListOfRestaurants = arr[1];
-//  But we are destructuring on the fly instead of using this
+
+useEffect(()=>{
+    fetchData();
+},[]);
+
+const fetchData = async ()=>{
+    // const data= await fetch(SWIGGY_API_URL);
+    const data= await fetch(SWIGGY_API_URL);
+    const json = await data.json();
+    console.log(json);
+    // Optional Chaining
+    setListOfRestaurants(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+}
+
+if(listOfRestaurants.length===0){
+    return (<Shimmer/>)
+}
 
 
   return (
