@@ -37,3 +37,7 @@
  * - Address
  * - Conatcts
  */
+
+ # 2 types of Routing in web pages
+ - Client Side Routing - Not networlk call is made. Just loads the component according to route.
+ - Server Side Routing - Make a network call and get html page and display it on webpage
